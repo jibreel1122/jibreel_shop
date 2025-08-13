@@ -1,0 +1,84 @@
+A Highly Detailed Prompt to Create a Full-Stack Men's Clothing E-commerce Store (Completely Free)
+Create a production-ready, full-stack men's fashion e-commerce website with a modern and minimalist aesthetic. The entire project must be built using Next.js 14 (App Router) for the frontend, Supabase (as a free-tier PostgreSQL backend, Auth, and Storage), Tailwind CSS for all styling, and TypeScript for robust type safety.
+
+The website must be fully internationalized with support for both English (LTR) and Arabic (RTL). The UI should dynamically switch its directionality, component layout, and language based on the user's selected locale.
+
+Crucially, the entire project, including development, deployment, and hosting, must operate entirely on free tiers of the chosen services. This means the solution must be scalable enough for an initial launch without incurring any costs.
+
+Core Specifications & Features
+1. Project Setup & Configuration
+
+Dependencies: The project must use the latest versions of Next.js 14, React, TypeScript, Tailwind CSS, Supabase, and any necessary libraries for internationalization.
+
+Environment Variables: The project must be configured to use environment variables for SUPABASE_URL and SUPABASE_ANON_KEY.
+
+Internationalization: Set up next.config.ts to support en and ar locales. Implement a language toggle component that persists the user's language choice. The entire site, including all text content, labels, and metadata, must be translatable.
+
+Styling: Use a single globals.css file to configure Tailwind CSS. Ensure a minimalist, clean, and professional design that emphasizes the products.
+
+Database: Set up a Supabase project on its free tier. The following tables must be created using a provided SQL script:
+
+products: Stores product information including name, description, price, an array of image URLs, sizes/colors as a JSON object, and category.
+
+orders: Tracks customer orders, linking to a user profile, with details, total, and status.
+
+discounts: Manages discount codes, percentages, and validity dates.
+
+user_profiles: Extends Supabase Auth with user-specific details like name, address, and language preference.
+
+Deployment: The front-end must be deployed to a free hosting provider like Vercel or Netlify, leveraging their generous free tiers for Next.js applications. The back-end will be automatically handled by Supabase's free tier. The project must be set up to deploy directly from a GitHub repository, enabling continuous deployment for every push.
+
+2. User Interface & Page Structure
+
+Home Page (/): A sleek landing page featuring a hero section with a placeholder image of modern fashion trends. Display a curated selection of featured products and categories below. The layout should be fully responsive and adapt to both LTR and RTL.
+
+Catalog (/catalog): A complete product catalog page with a clean grid layout. It must include a robust filtering system by category, price range, and size, all rendered in a sidebar. The product cards should be visually appealing and include a quick-view or add-to-cart option.
+
+Product Details (/product/[id]): A dedicated page for each product, showcasing a high-quality image gallery, detailed description, variant selectors (size, color), and a clear "Add to Cart" button. All forms on this page must include client-side validation.
+
+Shopping Cart (/cart): A dedicated cart page that lists all items with options to adjust quantities or remove items. The cart must persist across sessions, either using a React Context and localStorage or server-side logic.
+
+Checkout (/checkout): A multi-step checkout form that collects shipping information, applies discount codes, and integrates a mock payment system. The process must display a loading state while processing.
+
+User Dashboard (/dashboard): A private user area where customers can view their order history and update their profile information. Access must be restricted to authenticated users.
+
+Admin Dashboard (/admin): A comprehensive and secure dashboard for administrators. This section should have a different theme or visual cues to distinguish it from the customer-facing UI. It must include CRUD (Create, Read, Update, Delete) functionality for products, a table view of all orders, user management tools, and a simple sales analytics chart.
+
+3. Functionality & Logic
+
+Authentication: Implement user registration and login pages (/auth/register, /auth/login) using Supabase Auth. Use Next.js Middleware to protect the /dashboard and /admin routes, ensuring only authenticated users can access them.
+
+API Endpoints: Create the following API endpoints using Next.js Route Handlers:
+
+/api/products: A protected endpoint for product CRUD operations (Admin only).
+
+/api/orders: A POST endpoint to create new orders, with robust validation.
+
+/api/checkout: An endpoint to handle mock payment processing and finalize the order.
+
+UI Components: Build a set of reusable React components (e.g., ProductCard, FilterBar, LanguageToggle, LoadingSpinner, ErrorAlert) to maintain a consistent design system. All forms must use client-side validation and display clear error messages.
+
+Admin Tools: The admin dashboard must provide intuitive interfaces for managing data. Use modal dialogs for confirmation before destructive actions like deleting products. All admin forms must be mobile-friendly.
+
+Deliverables & Best Practices
+Code Quality: The entire codebase must be written in TypeScript, follow a clean, consistent style (enforced with ESLint), and prioritize performance with Server Components where appropriate. Implement error boundaries and loading states for a better user experience.
+
+Documentation: Provide a comprehensive README.md file that includes:
+
+Detailed setup instructions for both the Next.js app and the Supabase backend.
+
+A guide on how to run the project locally.
+
+Instructions for API testing using curl commands.
+
+A clear deployment guide, explaining how to connect the GitHub repository to Vercel and Supabase.
+
+Final Touches:
+
+Optimize all images using the Next.js Image component and leverage Supabase Storage for asset hosting, staying within the free tier limits (e.g., 1 GB of storage).
+
+Avoid external icon libraries; use typography and simple CSS for visual cues.
+
+Ensure all client and server-side operations include proper error handling with appropriate HTTP status codes.
+
+The project must be architected to be completely free from beginning to end, with no credit card required for setup or deployment. It should be a fully functional, production-ready solution that can be used for personal or non-commercial projects without any costs.
